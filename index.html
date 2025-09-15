@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calculadora de Jornada de Peso</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style type="text/tailwindcss">
+        /* Cores e fontes personalizadas para o Tailwind */
+        @layer base {
+            :root {
+                --color-primary-500: #10B981; /* Esmeralda 500 */
+                --color-primary-600: #059669; /* Esmeralda 600 */
+                --color-secondary-500: #3B82F6; /* Azul 500 */
+                --color-accent-400: #FCD34D; /* Âmbar 400 */
+                --color-neutral-100: #F3F4F6; /* Cinza 100 */
+                --color-neutral-800: #1F2937; /* Cinza 800 */
+            }
+        }
+    </style>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        primary: {
+                            500: 'var(--color-primary-500)',
+                            600: 'var(--color-primary-600)',
+                        },
+                        secondary: {
+                            500: 'var(--color-secondary-500)',
+                        },
+                        accent: {
+                            400: 'var(--color-accent-400)',
+                        },
+                        neutral: {
+                            100: 'var(--color-neutral-100)',
+                            800: 'var(--color-neutral-800)',
+                        }
+                    },
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                    }
+                }
+            }
+        }
+    </script>
+</head>
+<body class="bg-neutral-100 font-sans text-neutral-800 flex items-center justify-center min-h-screen p-4">
+    <!-- Container Principal do Aplicativo -->
+    <main class="w-full max-w-2xl bg-white rounded-3xl shadow-xl overflow-hidden p-6 md:p-10">
+        <!-- Header Component -->
+        <div id="header-component"></div>
+        
+        <!-- Input Section Component -->
+        <div id="input-section-component"></div>
+        
+        <!-- Results Section Component -->
+        <div id="results-section-component"></div>
+    </main>
+
+    <!-- Modal Container -->
+    <div id="modal-container"></div>
+
+    <!-- Preview script error prevention -->
+    <script>
+        // Prevent preview script errors by ensuring inspector element exists
+        document.addEventListener('DOMContentLoaded', function() {
+            // Create a dummy inspector element if it doesn't exist
+            if (!document.querySelector('[data-preview-inspector]')) {
+                const inspector = document.createElement('div');
+                inspector.setAttribute('data-preview-inspector', 'true');
+                inspector.style.display = 'none';
+                document.body.appendChild(inspector);
+            }
+        });
+    </script>
+
+    <script type="module" src="/src/main.js"></script>
+</body>
+</html>

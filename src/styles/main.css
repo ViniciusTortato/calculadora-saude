@@ -1,0 +1,38 @@
+/* Custom CSS variables for Tailwind */
+@layer base {
+  :root {
+    --color-primary-500: #10B981;
+    --color-primary-600: #059669;
+    --color-secondary-500: #3B82F6;
+    --color-accent-400: #FCD34D;
+    --color-neutral-100: #F3F4F6;
+    --color-neutral-800: #1F2937;
+  }
+}
+
+/* Tailwind configuration */
+tailwind.config = {
+  theme: {
+    extend: {
+      colors: {
+        primary: {
+          500: 'var(--color-primary-500)',
+          600: 'var(--color-primary-600)',
+        },
+        secondary: {
+          500: 'var(--color-secondary-500)',
+        },
+        accent: {
+          400: 'var(--color-accent-400)',
+        },
+        neutral: {
+          100: 'var(--color-neutral-100)',
+          800: 'var(--color-neutral-800)',
+        }
+      },
+      fontFamily: {
+        sans: ['Inter', 'sans-serif'],
+      }
+    }
+  }
+}
